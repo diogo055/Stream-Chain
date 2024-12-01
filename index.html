@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StreamChain: Revolutionizing streaming with blockchain technology. Empower creators and reward viewers. Join the movement!">
+  <title>StreamChain | The Future of Streaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Advanced Background Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      background: #000;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .bg-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .gradient-bg {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, 
+        rgba(78,0,126,0.7) 0%, 
+        rgba(110,87,255,0.6) 20%, 
+        rgba(139,0,232,0.5) 40%, 
+        rgba(179,66,255,0.4) 60%, 
+        rgba(221,110,255,0.3) 80%, 
+        transparent 100%
+      );
+      animation: 
+        gradientRotate 20s linear infinite,
+        gradientPulse 10s ease-in-out infinite alternate;
+      transform-origin: center;
+    }
+
+    .particle-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, 
+        rgba(255,255,255,0.8) 0%, 
+        rgba(255,255,255,0) 70%
+      );
+      border-radius: 50%;
+      animation: particleMove 15s linear infinite;
+    }
+
+    @keyframes gradientRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes gradientPulse {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1.1);
+        opacity: 0.9;
+      }
+    }
+
+    @keyframes particleMove {
+      0% {
+        transform: 
+          translateX(0) 
+          translateY(0) 
+          scale(0.5) 
+          rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: 
+          translateX(var(--move-x)) 
+          translateY(var(--move-y)) 
+          scale(1) 
+          rotate(180deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: 
+          translateX(0) 
+          translateY(0) 
+          scale(0.5) 
+          rotate(360deg);
+        opacity: 0.2;
+      }
+    }
+
+    /* Original CSS from the previous design */
+    nav {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #b342ff;
+    }
+
+    header {
+      text-align: center;
+      padding: 150px 20px 100px;
+    }
+
+    header h1 {
+      font-size: 5rem;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: brightRainbow-animation 4s linear infinite;
+    }
+
+    @keyframes brightRainbow-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 4rem;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowGlow 6s ease-in-out infinite alternate;
+      text-shadow: 0 0 15px rgba(221, 110, 255, 0.6);
+    }
+
+    @keyframes rainbowGlow {
+      0% { text-shadow: 0 0 10px rgba(221, 110, 255, 0.4); }
+      100% { text-shadow: 0 0 25px rgba(221, 110, 255, 0.8); }
+    }
+
+    .content-box {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .content-box p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+    }
+
+    .content-box strong {
+      color: #ffbaff;
+      font-weight: bold;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 40px 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    footer a {
+      color: #b342ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Advanced Background Layers -->
+  <div class="bg-wrapper">
+    <div class="gradient-bg"></div>
+    <div class="particle-overlay" id="particleOverlay"></div>
+  </div>
+
+  <!-- Menu Bar -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#coming-soon">Coming Soon</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>StreamChain.online</h1>
+    <p>The Future of Streaming, Powered by Blockchain</p>
+  </header>
+
+  <section id="about">
+    <h2>About <span>StreamChain</span></h2>
+    <div class="content-box">
+      <p>
+        Welcome to <strong>StreamChain.online</strong>, where streaming meets <strong>innovation</strong> and <strong>empowerment</strong>. We're transforming the way creators and viewers interact by combining the <strong>transparency</strong> of blockchain with cutting-edge technology, making entertainment <strong>fairer</strong>, <strong>smarter</strong>, and <strong>more rewarding</strong> for everyone.
+      </p>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>Why <span>StreamChain.online?</span></h2>
+    <div class="content-box">
+      <p>
+        <strong>Stream and Earn:</strong> Watch your favorite shows and <strong>earn tokens</strong> while doing it. Turn your <strong>time</strong> into <strong>value</strong> with our tokenized reward system.
+      </p>
+      <p>
+        <strong>Empowered Creators:</strong> Keep <strong>100% ownership</strong> of your content and get <strong>instant payments</strong> through smart contracts. <strong>Your art</strong>, <strong>your rules</strong>, <strong>your earnings</strong>.
+      </p>
+      <p>
+        <strong>Personalized, Private, Perfect:</strong> Our AI delivers tailored recommendations while keeping your data <strong>secure</strong> and <strong>private</strong>. Finally, personalization without compromise.
+      </p>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Our <span>Team</span></h2>
+    <div class="content-box">
+      <p>
+        At <strong>StreamChain.online</strong>, our team brings over <strong>15 years of industry experience</strong>, combining deep expertise in <strong>blockchain technology</strong>, <strong>AI development</strong>, <strong>creative design</strong>, and <strong>business strategy</strong>. We've assembled a diverse group of forward-thinking professionals, each driven by a shared vision to redefine the streaming landscape. Our collective experience empowers us to build a platform that not only empowers creators and rewards viewers but also transforms how entertainment is consumed and interacted with.
+      </p>
+      <p>
+        From our blockchain engineers, who ensure seamless, secure, and scalable transactions through integrations with <strong>Solana</strong>, <strong>Polygon</strong>, and the upcoming <strong>Avalanche Network</strong>, to our AI experts working alongside <strong>Cohere</strong> to deliver personalized content experiences while respecting user privacy, every aspect of StreamChain.online is crafted with precision and foresight. Our creative team, in collaboration with <strong>Sketch</strong>, equips content creators with the best tools to bring their visions to life, while our business strategists focus on building a fair, transparent, and rewarding ecosystem.
+      </p>
+      <p>
+        With 15 years of industry experience backing us, we are not just building a streaming service; we are shaping the future of entertainment, creating a platform where innovation, creativity, and community converge.
+      </p>
+    </div>
+  </section>
+
+  <section id="coming-soon">
+    <h2>Coming <span>Soon</span></h2>
+    <div class="content-box">
+      <p>
+        We are beyond excited to announce that <strong>StreamChain.online</strong> will officially launch on <strong>December 1st</strong>—and we're ready to transform the way you experience streaming. After months of tireless development, we've built a platform that's not just about watching content—it's about owning it, rewarding you for your time, and empowering creators to truly benefit from their work.
+      </p>
+      <p>
+        With <strong>Solana</strong>, <strong>Polygon</strong>, and the upcoming <strong>Avalanche Network</strong> integrations, our platform is designed for lightning-fast, secure transactions that ensure seamless streaming with no borders or restrictions.
+      </p>
+      <p>
+        As we prepare for our official launch, we invite you to sign up early and become a part of the <strong>StreamChain revolution</strong>. Be among the first to experience a whole new world of streaming that is transparent, decentralized, and most importantly—rewarding for everyone. Stay tuned for our upcoming announcements as we continue to refine the future of entertainment.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>StreamChain &copy; 2024 | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    function createParticles() {
+      const overlay = document.getElementById('particleOverlay');
+      overlay.innerHTML = ''; // Clear existing particles
+      const particleCount = window.innerWidth > 1200 ? 50 : 30;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 100 + 20;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.left = `${Math.random() * 100}%`;
+        
+        particle.style.setProperty('--move-x', `${(Math.random() - 0.5) * 200}%`);
+        particle.style.setProperty('--move-y', `${(Math.random() - 0.5) * 200}%`);
+        
+        particle.style.animationDelay = `-${Math.random() * 15}s`;
+        
+        overlay.appendChild(particle);
+      }
+    }
+
+    createParticles();
+    window.addEventListener('resize', createParticles);
+  </script>
+</body>
+</html>
